@@ -15,7 +15,7 @@ public class UserEntity {
 
     @Id 
     @GeneratedValue
-    @UuidGenerator(style =UuidGenerator.style.TIME)
+    @UuidGenerator(style =UuidGenerator.Style.TIME)
     private UUID id;
  
     @NotBlank(message= "username no puede estar en blanco")

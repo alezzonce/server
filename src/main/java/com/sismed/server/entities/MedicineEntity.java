@@ -3,7 +3,7 @@ package com.sismed.server.entities;
 import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
-import jakarta.validation.constraints.NotBlank;
+import java.time.LocalDate;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,7 +15,7 @@ public class MedicineEntity {
 
     @Id 
     @GeneratedValue
-    @UuidGenerator(style =UuidGenerator.style.TIME)
+    @UuidGenerator(style =UuidGenerator.Style.TIME)
     private UUID id;
 
     private String name;

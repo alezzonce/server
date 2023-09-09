@@ -4,16 +4,17 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
-import jakarta.validation.constraints.NotBlank;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
+
+@Data
 public class InvoiceEntity{
     
     @Id 
     @GeneratedValue
-    @UuidGenerator(style =UuidGenerator.style.TIME)
+    @UuidGenerator(style =UuidGenerator.Style.TIME)
     private UUID id;
 
     private String amount;
