@@ -17,33 +17,33 @@ import org.springframework.http.ResponseEntity;
 import java.util.UUID;
 
 import com.sismed.server.entities.UserEntity;
-import com.sismed.server.services.UserService;
+import com.sismed.server.services.Me;
 import com.sismed.server.utils.Pagination;
 
 @RestController
 @RequestMapping("/user")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class MedicineTypeController {
-    @Autowired private UserService userService;
+    @Autowired private Me Me;
     
     @GetMapping("/all")
     public ResponseEntity<Pagination<UserEntity>> getAllUsers(@RequestParam(defaultValue="0") int page,@RequestParam(defaultValue = "5") int size){
-        return new ResponseEntity<Pagination<UserEntity>>(userService.getAllUsers(page, size), HttpStatus.OK);
+        return new ResponseEntity<Pagination<UserEntity>>(Me.getAllUsers(page, size), HttpStatus.OK);
     }
 
     @PostMapping("/create")
     public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity){
-        return new ResponseEntity<UserEntity>(userService.createUser(userEntity), HttpStatus.CREATED);
+        return new ResponseEntity<UserEntity>(Me.createUser(userEntity), HttpStatus.CREATED);
     }
     
     @PutMapping("/{id}")
     public ResponseEntity<UserEntity> updateUser(@PathVariable UUID id, @RequestBody UserEntity userEntity){
-        return new ResponseEntity<UserEntity>(userService.updateUser(id, userEntity), HttpStatus.OK);
+        return new ResponseEntity<UserEntity>(Me.updateUser(id, userEntity), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<UserEntity> deleteUser(@PathVariable UUID id){
-        return new ResponseEntity<UserEntity>(userService.deleteById(id), HttpStatus.OK);
+        return new ResponseEntity<UserEntity>(Me.deleteById(id), HttpStatus.OK);
     }
 
 }
