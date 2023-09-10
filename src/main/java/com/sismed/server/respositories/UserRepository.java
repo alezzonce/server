@@ -8,11 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 import com.sismed.server.entities.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, UUID> {
-    @Query("SELECT u FROM UserEntity u WHERE u.username = ?1")
-    UserEntity findByUsername(String username);
+    /*@Query("SELECT u FROM UserEntity u WHERE u.user = ?1")  QUEDA PENDIENTE REVISARLO GENERA ERROR*/
+    UserEntity findByuser(String user);
 
-    boolean existsByUsername(String username);
-
-    
+    boolean existsByuser(String user);
 
 }
