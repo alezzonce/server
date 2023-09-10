@@ -21,8 +21,9 @@ public class UserConditionEntity{
 
     private String userCondition;
 
-    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "userEntity_id")
     private UserEntity user;
 
 }
+

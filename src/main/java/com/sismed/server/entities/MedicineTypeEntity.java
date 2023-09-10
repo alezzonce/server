@@ -23,7 +23,7 @@ public class MedicineTypeEntity{
     
     private String availability;
 
-    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "MedicineEntity_id")
     private MedicineEntity medicine;
 
