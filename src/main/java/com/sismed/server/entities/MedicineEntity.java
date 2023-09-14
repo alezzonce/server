@@ -13,7 +13,7 @@ import lombok.Data;
 @Data 
 public class MedicineEntity {
 
-    @Id 
+    @Id
     @GeneratedValue
     @UuidGenerator(style =UuidGenerator.Style.TIME)
     private UUID id;
@@ -31,5 +31,5 @@ public class MedicineEntity {
     @ManyToOne (cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "userEntity_id")
     private UserEntity user;
-    
+
 }

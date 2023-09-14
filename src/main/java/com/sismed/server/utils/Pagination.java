@@ -1,4 +1,4 @@
-package com.sismed.server.entities;
+package com.sismed.server.utils;
 
 import java.util.List;
 import lombok.Data;

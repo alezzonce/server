@@ -13,11 +13,11 @@ import lombok.Data;
 @Data
 public class UserEntity {
 
-    @Id 
+    @Id
     @GeneratedValue
     @UuidGenerator(style =UuidGenerator.Style.TIME)
     private UUID id;
- 
+
     @NotBlank(message= "username no puede estar en blanco")
     private String username;
 

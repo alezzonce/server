@@ -1,6 +1,4 @@
-package com.sismed.server.controller;
-
-import java.util.UUID;
+package com.sismed.server.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,14 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.UUID;
+
 import com.sismed.server.entities.UserEntity;
 import com.sismed.server.services.UserService;
-import com.sismed.server.entities.Pagination;
+import com.sismed.server.utils.Pagination;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/delivery")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class userController {
+public class DeliveryController {
     @Autowired private UserService userService;
     
     @GetMapping("/all")

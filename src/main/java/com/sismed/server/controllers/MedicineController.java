@@ -16,34 +16,39 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.util.UUID;
 
-import com.sismed.server.entities.MedicineTypeEntity;
-import com.sismed.server.services.MedicineTypeService;
+import com.sismed.server.entities.UserEntity;
+import com.sismed.server.services.UserService;
 import com.sismed.server.utils.Pagination;
 
 @RestController
-@RequestMapping("/medicineType")
+@RequestMapping("/medicine")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class MedicineTypeController {
-    @Autowired private MedicineTypeService medicineTypeService;
+public class MedicineController {
+    @Autowired private UserService userService;
     
     @GetMapping("/all")
-    public ResponseEntity<Pagination<MedicineTypeEntity>> getAllUsers(@RequestParam(defaultValue="0") int page,@RequestParam(defaultValue = "5") int size){
-        return new ResponseEntity<Pagination<MedicineTypeEntity>>(medicineTypeService.getAllUsers(page, size), HttpStatus.OK);
+    public ResponseEntity<Pagination<UserEntity>> getAllUsers(@RequestParam(defaultValue="0") int page,@RequestParam(defaultValue = "5") int size){
+        return new ResponseEntity<Pagination<UserEntity>>(userService.getAllUsers(page, size), HttpStatus.OK);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<MedicineTypeEntity> createUser(@RequestBody MedicineTypeEntity userEntity){
-        return new ResponseEntity<MedicineTypeEntity>(medicineTypeService.createMedicineType(userEntity), HttpStatus.CREATED);
+    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity){
+        return new ResponseEntity<UserEntity>(userService.createUser(userEntity), HttpStatus.CREATED);
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<MedicineTypeEntity> updateUser(@PathVariable UUID id, @RequestBody MedicineTypeEntity userEntity){
-        return new ResponseEntity<MedicineTypeEntity>(medicineTypeService.updateMedicineType(id, userEntity), HttpStatus.OK);
+    public ResponseEntity<UserEntity> updateUser(@PathVariable UUID id, @RequestBody UserEntity userEntity){
+        return new ResponseEntity<UserEntity>(userService.updateUser(id, userEntity), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MedicineTypeEntity> deleteUser(@PathVariable UUID id){
-        return new ResponseEntity<MedicineTypeEntity>(medicineTypeService.deleteById(id), HttpStatus.OK);
+    public ResponseEntity<UserEntity> deleteUser(@PathVariable UUID id){
+        return new ResponseEntity<UserEntity>(userService.deleteById(id), HttpStatus.OK);
     }
+    
+
+
+
 
 }
+

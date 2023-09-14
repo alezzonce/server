@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public class MedicineTypeEntity{
 
-    @Id 
+    @Id
     @GeneratedValue
     @UuidGenerator(style =UuidGenerator.Style.TIME)
     private UUID id;
@@ -20,7 +20,7 @@ public class MedicineTypeEntity{
     private String category;
 
     private String amount;
-    
+
     private String availability;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)

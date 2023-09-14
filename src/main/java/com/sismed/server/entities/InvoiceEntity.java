@@ -8,11 +8,12 @@ import org.hibernate.annotations.UuidGenerator;
 import jakarta.persistence.*;
 import lombok.Data;
 
-
+@Entity
+@Table(name = "Invoice")
 @Data
 public class InvoiceEntity{
-    
-    @Id 
+
+    @Id
     @GeneratedValue
     @UuidGenerator(style =UuidGenerator.Style.TIME)
     private UUID id;
@@ -20,7 +21,7 @@ public class InvoiceEntity{
     private String amount;
 
     private LocalDate expeditionDate;
-    
+
     private String alternativeAdress;
 
     @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)

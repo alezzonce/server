@@ -11,16 +11,16 @@ import lombok.Data;
 @Table(name = "Delivery")
 @Data
 public class DeliveryEntity{
-    
-    @Id 
+
+    @Id
     @GeneratedValue
     @UuidGenerator(style =UuidGenerator.Style.TIME)
     private UUID id;
 
-    private String VehicleLicensePlate;
+    private String vehicleLicensePlate;
 
-    private String VehicleType;
-    
+    private String vehicleType;
+
     @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "MedicineEntity_id")
     private UserEntity user;

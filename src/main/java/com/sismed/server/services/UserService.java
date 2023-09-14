@@ -8,7 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 
-import com.sismed.server.entities.Pagination;
+import com.sismed.server.utils.Pagination;
 import com.sismed.server.respositories.UserRepository;
 import org.springframework.data.domain.PageRequest;
 
@@ -33,7 +33,7 @@ public class UserService extends RuntimeException {
 
     public UserEntity createUser (UserEntity userEntity) {
 
-        if (userRepository.existsByUsername(userEntity.getUsername())) {
+        if (userRepository.existsByUser(userEntity.getUsername())) {
                 throw new DataIntegrityViolationException("User already exists");
             }
 
