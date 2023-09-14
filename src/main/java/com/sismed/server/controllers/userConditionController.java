@@ -32,7 +32,7 @@ public class userConditionController {
         return new ResponseEntity<Pagination<UserConditionEntity>>(userConditionService.getAllUsers(page, size), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<UserConditionEntity> createUser(@RequestBody UserConditionEntity UserConditionEntity){
         return new ResponseEntity<UserConditionEntity>(userConditionService.createUserCondition(UserConditionEntity), HttpStatus.CREATED);
     }

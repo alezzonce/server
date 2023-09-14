@@ -33,10 +33,6 @@ public class UserConditionService extends RuntimeException {
 
     public UserConditionEntity createUserCondition (UserConditionEntity UserConditionEntity) {
 
-        if (userConditionRepository.existsByuserCondition(UserConditionEntity.getUserCondition())) {
-                throw new DataIntegrityViolationException("User already exists");
-            }
-
         return userConditionRepository.save(UserConditionEntity);
     }
 

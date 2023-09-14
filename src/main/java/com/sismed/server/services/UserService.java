@@ -32,10 +32,9 @@ public class UserService extends RuntimeException {
     }
 
     public UserEntity createUser (UserEntity userEntity) {
-
-        if (userRepository.existsByUser(userEntity.getUsername())) {
-                throw new DataIntegrityViolationException("User already exists");
-            }
+        if (userRepository.findByUsername(userEntity.getUsername()) != null) {
+            throw new DataIntegrityViolationException("Username already exists");
+        }
 
         return userRepository.save(userEntity);
     }
@@ -46,9 +45,14 @@ public class UserService extends RuntimeException {
             userUpdate.get().setUsername(user.getUsername());
             userUpdate.get().setPassword(user.getPassword());
             userUpdate.get().setEmail(user.getEmail());
+            userUpdate.get().setFirstName(user.getFirstName());
+            userUpdate.get().setLastName(user.getLastName());
+            userUpdate.get().setTelephone(user.getTelephone());
+            userUpdate.get().setAddress(user.getAddress());
+            userUpdate.get().setUserRol(user.getUserRol());
             return userRepository.save(userUpdate.get());
         } else {
-            throw new DataIntegrityViolationException("User not found");
+            throw new DataIntegrityViolationException("El usuario no existe");
         }
     }
 

@@ -31,7 +31,7 @@ public class MedicineTypeController {
         return new ResponseEntity<Pagination<MedicineTypeEntity>>(medicineTypeService.getAllUsers(page, size), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<MedicineTypeEntity> createUser(@RequestBody MedicineTypeEntity userEntity){
         return new ResponseEntity<MedicineTypeEntity>(medicineTypeService.createMedicineType(userEntity), HttpStatus.CREATED);
     }

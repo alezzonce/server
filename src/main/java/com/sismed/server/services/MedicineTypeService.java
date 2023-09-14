@@ -32,11 +32,6 @@ public class MedicineTypeService extends RuntimeException {
     }
 
     public MedicineTypeEntity createMedicineType (MedicineTypeEntity medicineTypeEntity) {
-
-        if (MedicineTypeRepository.existsByCategory(medicineTypeEntity.getCategory())){
-                throw new DataIntegrityViolationException("User already exists");
-            }
-
         return medicineTypeRepository.save(medicineTypeEntity);
     }
 

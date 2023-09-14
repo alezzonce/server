@@ -34,10 +34,6 @@ public class MedicineService extends RuntimeException {
 
     public MedicineEntity createMedicine(MedicineEntity MedicineEntity) {
 
-        if (MedicineRepository.existsByName(MedicineEntity.getName())) {
-            throw new DataIntegrityViolationException("User already exists");
-        }
-
         return MedicineRepository.save(MedicineEntity);
     }
 

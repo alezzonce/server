@@ -33,10 +33,6 @@ public class DeliveryService extends RuntimeException {
 
     public DeliveryEntity createDelivery (DeliveryEntity deliveryEntity) {
 
-        if (deliveryRepository.existsByVehicleLicensePlate(deliveryEntity.getVehicleLicensePlate())){
-                throw new DataIntegrityViolationException("User already exists");
-            }
-
         return deliveryRepository.save(deliveryEntity);
     }
 

@@ -32,7 +32,7 @@ public class DeliveryController {
         return new ResponseEntity<Pagination<UserEntity>>(userService.getAllUsers(page, size), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity){
         return new ResponseEntity<UserEntity>(userService.createUser(userEntity), HttpStatus.CREATED);
     }

@@ -33,10 +33,6 @@ public class InvoiceService extends RuntimeException {
 
     public InvoiceEntity createInvoice (InvoiceEntity invoiceEntity) {
 
-        if (invoiceRepository.existsByAmount(invoiceEntity.getAmount())){
-                throw new DataIntegrityViolationException("User already exists");
-            }
-
         return invoiceRepository.save(invoiceEntity);
     }
 
