@@ -1,39 +1,41 @@
 package com.sismed.server.entities;
 
 import java.util.UUID;
-
 import org.hibernate.annotations.UuidGenerator;
 import jakarta.validation.constraints.NotBlank;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
+/* MODELO DE LA TABLA INVOICE */
+
 @Entity
-@Table(name = "user")
+@Table(name = "user") // Nombre de la tabla en la base de datos
 @Data
-public class UserEntity {
+
+public class UserEntity {   // Nombre de la tabla en la base de datos
 
     @Id
     @GeneratedValue
-    @UuidGenerator(style =UuidGenerator.Style.TIME)
+    @UuidGenerator(style =UuidGenerator.Style.TIME)     // Generador de UUID
     private UUID id;
 
-    @NotBlank(message= "username no puede estar en blanco")
-    private String username;
+    @NotBlank(message= "username no puede estar en blanco")     // Validación de campos
+    
+    private String username;    // Nombre de usuario
 
-    private String userRol;
+    private String userRol;     // Rol de usuario
 
-    private String firstName;
+    private String firstName;   // Nombre
 
-    private String lastName;
+    private String lastName;    // Apellido
 
-    private String email;
+    private String email;    // Correo electrónico
 
-    private String password;
+    private String password;   // Contraseña
 
-    private String telephone;
+    private String telephone;   // Teléfono
 
-    private String Address;
+    private String Address;     // Dirección
 
-    private String DNI;
+    private String DNI;     // DNI
 }

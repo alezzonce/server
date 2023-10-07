@@ -2,22 +2,23 @@ package com.sismed.server.services;
 
 import java.util.Optional;
 import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
-
 import com.sismed.server.utils.Pagination;
 import com.sismed.server.respositories.MedicineTypeRepository;
 import org.springframework.data.domain.PageRequest;
-
 import com.sismed.server.entities.MedicineTypeEntity;
+
+/* Servicio de métodos CRUD (crear, leer, actualizar y eliminar) registros de la tabla MedicineType */
 
 @Service
 public class MedicineTypeService extends RuntimeException {
 
     @Autowired MedicineTypeRepository medicineTypeRepository;
+
+    /* Método para obtener todos los registros de la tabla MedicineType */
 
     public Pagination<MedicineTypeEntity> getAllUsers(int page, int size){
         Page<MedicineTypeEntity> users = medicineTypeRepository.findAll(PageRequest.of(page, size));
@@ -31,9 +32,13 @@ public class MedicineTypeService extends RuntimeException {
         return pagination;
     }
 
+    /* Método para crear un registro de la tabla MedicineType */
+
     public MedicineTypeEntity createMedicineType (MedicineTypeEntity medicineTypeEntity) {
         return medicineTypeRepository.save(medicineTypeEntity);
     }
+
+    /* Método para actualizar un registro de la tabla MedicineType */
 
     public MedicineTypeEntity updateMedicineType (UUID id, MedicineTypeEntity user) {
         Optional<MedicineTypeEntity> MedicineTypeUpdate = medicineTypeRepository.findById(id);
@@ -45,6 +50,8 @@ public class MedicineTypeService extends RuntimeException {
             throw new DataIntegrityViolationException("User not found");
         }
     }
+
+    /* Método para eliminar un registro de la tabla MedicineType */
 
     public MedicineTypeEntity deleteById (UUID id) {
         Optional<MedicineTypeEntity> userDelete = medicineTypeRepository.findById(id);

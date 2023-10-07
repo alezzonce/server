@@ -4,9 +4,8 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * Model to represent a page to handle the pagination with values currentPage, data, pageSize,
- * total, totalElements, page
- *
+ * clase tipo ENUM para el tipo de respuesta de la API REST de Spring Boot
+ * 
  * @param <T> is a entity type
  */
 @Data

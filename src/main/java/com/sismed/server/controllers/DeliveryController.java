@@ -14,37 +14,37 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import java.util.UUID;
-
 import com.sismed.server.entities.UserEntity;
 import com.sismed.server.services.UserService;
 import com.sismed.server.utils.Pagination;
 
+/* Controlador de delivery */
+
 @RestController
 @RequestMapping("/delivery")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class DeliveryController {
-    @Autowired private UserService userService;
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})     //CrossOrigin para que se pueda acceder desde cualquier origen
+public class DeliveryController {   //Controlador de la entidad UserEntity
+    @Autowired private UserService userService; //Inyeccion de dependencias de la clase UserService
     
     @GetMapping("/all")
-    public ResponseEntity<Pagination<UserEntity>> getAllUsers(@RequestParam(defaultValue="0") int page,@RequestParam(defaultValue = "5") int size){
-        return new ResponseEntity<Pagination<UserEntity>>(userService.getAllUsers(page, size), HttpStatus.OK);
+    public ResponseEntity<Pagination<UserEntity>> getAllUsers(@RequestParam(defaultValue="0") int page,@RequestParam(defaultValue = "5") int size){ //Metodo para obtener todos los usuarios
+        return new ResponseEntity<Pagination<UserEntity>>(userService.getAllUsers(page, size), HttpStatus.OK);  //Retorna un objeto de tipo ResponseEntity con el cuerpo de la respuesta y el codigo de estado
     }
 
     @PostMapping
-    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity){
-        return new ResponseEntity<UserEntity>(userService.createUser(userEntity), HttpStatus.CREATED);
+    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity){  //Metodo para crear un usuario
+        return new ResponseEntity<UserEntity>(userService.createUser(userEntity), HttpStatus.CREATED); //Retorna un objeto de tipo ResponseEntity con el cuerpo de la respuesta y el codigo de estado
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<UserEntity> updateUser(@PathVariable UUID id, @RequestBody UserEntity userEntity){
-        return new ResponseEntity<UserEntity>(userService.updateUser(id, userEntity), HttpStatus.OK);
+    public ResponseEntity<UserEntity> updateUser(@PathVariable UUID id, @RequestBody UserEntity userEntity){    //Metodo para actualizar un usuario
+        return new ResponseEntity<UserEntity>(userService.updateUser(id, userEntity), HttpStatus.OK);   //Retorna un objeto de tipo ResponseEntity con el cuerpo de la respuesta y el codigo de estado
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<UserEntity> deleteUser(@PathVariable UUID id){
-        return new ResponseEntity<UserEntity>(userService.deleteById(id), HttpStatus.OK);
+    public ResponseEntity<UserEntity> deleteUser(@PathVariable UUID id){    //Metodo para eliminar un usuario
+        return new ResponseEntity<UserEntity>(userService.deleteById(id), HttpStatus.OK);   //Retorna un objeto de tipo ResponseEntity con el cuerpo de la respuesta y el codigo de estado
     }
 
 

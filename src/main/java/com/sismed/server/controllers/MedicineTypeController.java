@@ -15,10 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.util.UUID;
-
 import com.sismed.server.entities.MedicineTypeEntity;
 import com.sismed.server.services.MedicineTypeService;
 import com.sismed.server.utils.Pagination;
+
+/* Controlador de medicineType */
 
 @RestController
 @RequestMapping("/medicineType")
@@ -29,21 +30,21 @@ public class MedicineTypeController {
     @GetMapping("/all")
     public ResponseEntity<Pagination<MedicineTypeEntity>> getAllUsers(@RequestParam(defaultValue="0") int page,@RequestParam(defaultValue = "5") int size){
         return new ResponseEntity<Pagination<MedicineTypeEntity>>(medicineTypeService.getAllUsers(page, size), HttpStatus.OK);
-    }
+    }   //Obtener todos los registros
 
     @PostMapping
     public ResponseEntity<MedicineTypeEntity> createUser(@RequestBody MedicineTypeEntity userEntity){
         return new ResponseEntity<MedicineTypeEntity>(medicineTypeService.createMedicineType(userEntity), HttpStatus.CREATED);
-    }
+    }  //Crear un registro
     
     @PutMapping("/{id}")
     public ResponseEntity<MedicineTypeEntity> updateUser(@PathVariable UUID id, @RequestBody MedicineTypeEntity userEntity){
         return new ResponseEntity<MedicineTypeEntity>(medicineTypeService.updateMedicineType(id, userEntity), HttpStatus.OK);
-    }
+    }   //Actualizar un registro
 
     @DeleteMapping("/{id}")
     public ResponseEntity<MedicineTypeEntity> deleteUser(@PathVariable UUID id){
         return new ResponseEntity<MedicineTypeEntity>(medicineTypeService.deleteById(id), HttpStatus.OK);
-    }
+    } //Eliminar un registro
 
 }
