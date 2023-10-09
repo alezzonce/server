@@ -55,6 +55,7 @@ public class UserService extends RuntimeException {
             userUpdate.get().setTelephone(user.getTelephone());
             userUpdate.get().setAddress(user.getAddress());
             userUpdate.get().setUserRol(user.getUserRol());
+            userUpdate.get().setDNI(user.getDNI());
             return userRepository.save(userUpdate.get());
         } else {
             throw new DataIntegrityViolationException("El usuario no existe");
